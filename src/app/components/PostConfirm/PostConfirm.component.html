@@ -1,0 +1,27 @@
+<ons-page>
+  <ons-toolbar>
+    <div class="center">Confirm</div>
+  </ons-toolbar>
+  <div class="background"></div>
+  <div class="content">
+    <ons-list>
+      <ons-list-header>Default</ons-list-header>
+      <ons-list-item *ngFor="let data of dataList$ | async">
+        <div class="left">{{data.id}}</div>
+        <div class="center">{{data.data}}</div>
+
+        <div class="right">
+          <span *ngIf="data.status==='yet'">
+            <ons-progress-circular indeterminate></ons-progress-circular>
+          </span>
+          <span *ngIf="data.status==='success'">
+            <ons-icon icon="fa-check" style="color: green"></ons-icon>
+          </span>
+          <span *ngIf="data.status==='failed'" style="color: red">
+            <ons-icon icon="fa-close"></ons-icon>
+          </span>
+        </div>
+      </ons-list-item>
+    </ons-list>
+  </div>
+</ons-page>
